@@ -152,7 +152,7 @@ input, select, textarea {
 	}
 
 	h2 { 
-		font-size: 1.5em; /* Tamanho padrão para h2 */
+		font-size: 1.5em; 
 		line-height: 1.5em;
 	}
 
@@ -161,7 +161,7 @@ input, select, textarea {
 	#main > section > header.major > h2 {
 		font-size: 1.8em !important; 
 		line-height: 1.3em !important; 
-		margin-bottom: 1.2em; /* Adiciona um pouco mais de espaço abaixo do título da seção */
+		margin-bottom: 1.2em; 
 	}
 
 
@@ -2623,13 +2623,14 @@ input, select, textarea {
 		background-repeat: repeat,								no-repeat;
 		background-size: auto,								150%;
 		color: rgba(255, 255, 255, 0.5); 
-		height: 100%;
+		height: 100vh; /* Alterado para 100vh para garantir altura total da viewport */
 		left: 0;
-		padding: 4em 4em 2em 4em; 
+		padding: 3em 3em 1.5em 3em; /* Padding vertical reduzido */
 		position: fixed;
 		text-align: right;
 		top: 0;
 		width: 35%;
+		box-sizing: border-box; /* Garante que padding não aumente a altura total */
 	}
 
 		#header > * { 
@@ -2645,7 +2646,9 @@ input, select, textarea {
 			-webkit-flex-grow: 1;
 			-ms-flex-grow: 1;
 			flex-grow: 1; 
-			margin-bottom: 1em; 
+			/* margin-bottom: 1em;  Removido para deixar o space-between do header atuar */
+			overflow-y: auto; /* Adicionado para caso o conteúdo do .inner seja muito grande */
+    		padding-bottom: 1em; /* Espaço para não colar no footer */
 		}
 
 		#header strong, #header b {
@@ -2673,10 +2676,11 @@ input, select, textarea {
 	#header footer#footer { 
 		width: 100%; 
 		flex-shrink: 0;  
-		padding-top: 1em; 
+		padding-top: 1em; /* Espaço acima dos ícones */
+		padding-bottom: 1em; /* Espaço abaixo do copyright */
 	}
 		#header footer#footer .icons { 
-			margin: 0 0 1em 0; 
+			margin: 0 0 0.75em 0; /* Margem abaixo dos ícones */
 		}
 
 			#header footer#footer .icons a {
@@ -2690,7 +2694,7 @@ input, select, textarea {
 			color: rgba(255, 255, 255, 0.4); 
 			font-size: 0.8em;
 			list-style: none;
-			margin: 1em 0 0 0; 
+			margin: 0; 
 			padding: 0;
 		}
 
@@ -3035,7 +3039,7 @@ input, select, textarea {
 		/* Header */
 
 			#header {
-				padding: 6em 3em 2em 3em; 
+				padding: 3em 3em 1.5em 3em; /* Ajustado padding */
 				width: 30%;
 			}
 
@@ -3365,14 +3369,15 @@ input, select, textarea {
 ul.tabs-nav {
 	list-style: none;
 	padding: 0;
-	margin: 0 0 0 0; /* Removida margem inferior para a borda da aba ativa conectar */
+	margin: 0 0 1em 0; /* Espaço abaixo das abas, antes do conteúdo */
 	display: flex;
 	flex-wrap: wrap;
-    /* border-bottom: 1px solid #0A2463;  Removido - a borda agora está em cada aba */
 }
 
 ul.tabs-nav li {
-	margin: 0 0.2em 0.5em 0.2em; /* Margem inferior para abas que quebram, e pequena margem lateral */
+	margin-right: 0.35em; 
+	margin-left: 0.35em;
+	margin-bottom: 0.5em; /* Espaço para abas que quebram linha, para evitar sobreposição */
 }
 
 ul.tabs-nav li a.tab-link {
@@ -3380,15 +3385,15 @@ ul.tabs-nav li a.tab-link {
 	padding: 0.7em 1.2em; 
 	text-decoration: none;
 	font-weight: 400;
-	border: 1px solid #d0d0d0; /* Borda sutil para todas as abas, incluindo inferior */
-	border-radius: 4px; /* Bordas arredondadas em todos os cantos */
+	border: 1px solid #e0e0e0; /* Borda sutil para TODAS as abas, incluindo inferior */
+	border-radius: 4px;
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 	font-size: 0.9em;
 	line-height: 1.4em; 
 	cursor: pointer;
 	position: relative; 
-	/* margin-bottom: -1px; Removido, pois todas as abas terão borda inferior visível */
 	
+	/* Padrão para abas INATIVAS */
 	background-color: #f5f5f5; 
 	color: #787878; 
 }
@@ -3396,26 +3401,25 @@ ul.tabs-nav li a.tab-link {
 ul.tabs-nav li a.tab-link:hover {
 	background-color: #e8e8e8; 
 	color: #333;
-	border-color: #c0c0c0; 
+	border-color: #d0d0d0; 
 }
 
 ul.tabs-nav li a.tab-link.active-tab {
 	background-color: #ffffff; 
 	color: #0A2463; 
 	font-weight: bold;
-	border-color: #0A2463; 
-    /* border-bottom-color: #ffffff !important;  Não é mais necessário apagar a borda inferior */
-    z-index: 1; /* Abaixo do .tab-content se ele tiver borda superior */
+	border-color: #0A2463; /* Borda azul para aba ativa */
+    /* A borda inferior já está definida em a.tab-link e será #0A2463 para a ativa */
+    position: relative; /* Para z-index, se necessário para sobrepor algo */
+    /* z-index: 1; */ /* Pode não ser necessário com a nova abordagem de borda */
 }
 
 .tab-content {
 	display: none; 
-	padding: 1.5em 0; /* Removido padding lateral, conteúdo usará largura total da seção */
-	/* border: 1px solid #0A2463; Removida borda do conteúdo */
-	/* border-top: none; */
+	padding: 1.5em 0; /* Padding vertical, conteúdo usa largura da seção */
+	/* border: none; */ /* Removida borda do conteúdo */
 	clear: both; 
-    margin-top: 1em; /* Espaço entre as abas e o conteúdo */
-	/* border-radius: 0 4px 4px 4px; */
+    margin-top: 0; /* Conteúdo começa logo abaixo das abas */
 }
 	.tab-content ul { 
 		list-style: disc;
@@ -3451,6 +3455,9 @@ ul.tabs-nav li a.tab-link.active-tab {
 	ul.tabs-nav {
 		justify-content: flex-start; 
 	}
+    /* ul.tabs-nav li {
+		margin-bottom: 0.5em;  Já está definido acima
+	} */
 }
 @media screen and (max-width: 480px) {
 	ul.tabs-nav li {
@@ -3459,9 +3466,6 @@ ul.tabs-nav li a.tab-link.active-tab {
 		margin-left: 0;
         margin-bottom: 0.25em; 
 	}
-    /* ul.tabs-nav li a.tab-link {
-        margin-bottom: -1px; 
-    } */ /* Removido pois não há mais sobreposição intencional */
 }
 
 
@@ -3470,4 +3474,3 @@ ul.tabs-nav li a.tab-link.active-tab {
 
 /* FIM DOS ESTILOS PERSONALIZADOS PARA NAVEGAÇÃO */
 /* --------------------------------------------------------------------------------- */
-
