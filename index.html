@@ -339,7 +339,7 @@
 
 					if (contactForm) {
 						contactForm.addEventListener('submit', function (e) {
-							e.preventDefault(); // Impede o envio padrão do formulário
+							e.preventDefault(); 
 
 							const formData = new FormData(contactForm);
 							const submitButton = contactForm.querySelector('input[type="submit"]');
@@ -347,8 +347,8 @@
 
 							submitButton.value = 'Enviando...';
 							submitButton.disabled = true;
-							formStatus.textContent = ''; // Limpa mensagens anteriores
-							formStatus.style.color = ''; // Reseta a cor da mensagem
+							formStatus.textContent = ''; 
+							formStatus.style.color = ''; 
 
 							fetch(contactForm.action, {
 								method: 'POST',
@@ -360,7 +360,7 @@
 								if (response.ok) {
 									formStatus.textContent = 'Mensagem enviada com sucesso!';
 									formStatus.style.color = 'green';
-									contactForm.reset(); // Limpa o formulário
+									contactForm.reset(); 
 								} else {
 									response.json().then(data => {
 										if (Object.hasOwn(data, 'errors')) {
