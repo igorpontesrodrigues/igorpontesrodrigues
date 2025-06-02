@@ -41,6 +41,7 @@
 							<li><a href="#habilidades" class="scrolly">Habilidades</a></li>
 							<li><a href="#servicos" class="scrolly">Serviços</a></li>
 							<li><a href="#two" class="scrolly">Projetos</a></li>
+							<li><a href="#depoimentos" class="scrolly">Depoimentos</a></li>
 							<li><a href="#three" class="scrolly">Contato</a></li>
 						</ul>
 					</nav>
@@ -266,6 +267,40 @@
 							</ul>
 					</section>
 
+				<section id="depoimentos">
+					<header class="major">
+						<h2>O Que Dizem Sobre Mim</h2>
+					</header>
+
+					<div class="testimonials-container">
+						<article class="testimonial-item">
+							<div class="testimonial-author">
+								<img src="images/placeholder-avatar.jpg" alt="Foto de [Nome do Autor do Depoimento 1]" class="author-avatar" />
+								<div class="author-details">
+									<p class="author-name"><strong>[Nome do Autor do Depoimento 1]</strong></p>
+									<p class="author-info">[Cargo/Empresa] - <a href="[Link do Perfil/Site do Autor 1]" target="_blank" rel="noopener noreferrer">Website</a></p>
+								</div>
+							</div>
+							<blockquote>
+								<p>"[Aqui vai o texto do depoimento do cliente ou colega. Mantenha-o conciso e impactante, destacando os resultados positivos do seu trabalho ou suas qualidades profissionais. Por exemplo: 'O Igor transformou nossa presença online com um site moderno e funcional que realmente atraiu mais clientes. Profissionalismo e competência definem seu trabalho!']"</p>
+							</blockquote>
+						</article>
+
+						<article class="testimonial-item">
+							<div class="testimonial-author">
+								<img src="images/placeholder-avatar.jpg" alt="Foto de [Nome do Autor do Depoimento 2]" class="author-avatar" />
+								<div class="author-details">
+									<p class="author-name"><strong>[Nome do Autor do Depoimento 2]</strong></p>
+									<p class="author-info">[Cargo/Empresa] - <a href="[Link do Perfil/Site do Autor 2]" target="_blank" rel="noopener noreferrer">Website</a></p>
+								</div>
+							</div>
+							<blockquote>
+								<p>"[Outro exemplo de depoimento. 'Trabalhar com o Igor foi uma experiência excelente. Ele é atencioso aos detalhes e entregou o projeto antes do prazo, superando nossas expectativas. Recomendo fortemente!']"</p>
+							</blockquote>
+						</article>
+					</div>
+				</section>
+
 				<section id="three">
 						<h2>Entre em Contato</h2>
 						<p>Gostou do que viu e acha que minhas habilidades podem agregar valor ao seu projeto ou equipe? Adoraria saber mais sobre suas ideias e necessidades. Sinta-se à vontade para me contatar através dos canais abaixo ou preenchendo o formulário. Responderei o mais breve possível!</p>
@@ -319,6 +354,7 @@
 			<script src="assets/js/main.js"></script>
 			<script>
 				document.addEventListener('DOMContentLoaded', function () {
+					// Código para as abas de Habilidades e Serviços
 					const tabContainers = document.querySelectorAll('.tabs-container');
 
 					tabContainers.forEach(container => {
@@ -352,6 +388,7 @@
 						});
 					});
 
+					// Código para o formulário de contato
 					const contactForm = document.getElementById('contact-form');
 					const formStatus = document.getElementById('form-status');
 
@@ -398,7 +435,26 @@
 							});
 						});
 					}
+
+					// Lógica para o Botão "Voltar ao Topo"
+					const backToTopButton = document.getElementById("backToTopBtn");
+
+					if (backToTopButton) { // Verifica se o botão existe no DOM
+						window.onscroll = function() {scrollFunction()};
+
+						function scrollFunction() {
+							if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+								backToTopButton.style.display = "block";
+							} else {
+								backToTopButton.style.display = "none";
+							}
+						}
+						// O clique é tratado pelo href e pela classe "scrolly" do template.
+					}
 				});
 			</script>
+
+		<a href="#one" id="backToTopBtn" title="Voltar ao Topo" class="scrolly"><i class="fas fa-arrow-up"></i></a>
+
 	</body>
 </html>
