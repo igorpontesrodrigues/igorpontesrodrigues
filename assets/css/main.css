@@ -110,15 +110,15 @@ input, select, textarea {
 		-webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		border-bottom: dotted 1px #3E92CC; /* COR DA BORDA DO LINK ALTERADA */
+		border-bottom: none; /* REMOVIDO SUBLINHADO PADRÃO DOS LINKS */
 		color: #3E92CC; /* COR DE LINK ALTERADA */
 		text-decoration: none;
 	}
 
 		a:hover {
-			border-bottom-color: transparent;
+			/* border-bottom-color: transparent !important;  Já removido acima */
 			color: #2A7CB0 !important; /* COR DE LINK HOVER ALTERADA */
-			text-decoration: none;
+			text-decoration: none; /* Garante que não haja sublinhado no hover */
 		}
 
 	strong, b {
@@ -135,7 +135,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #787878; 
+		color: #787878; /* Cor original para títulos H1-H6 gerais */
 		font-weight: 400;
 		line-height: 1em;
 		margin: 0 0 1em 0;
@@ -144,6 +144,7 @@ input, select, textarea {
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 			color: inherit;
 			text-decoration: none;
+			border-bottom: none; /* Remove sublinhado de links em títulos */
 		}
 
 	h1 { /* Este é o H1 da barra lateral */
@@ -167,7 +168,7 @@ input, select, textarea {
 	#main > section > header.major > h2 {
 		font-size: 1.8em !important; 
 		line-height: 1.3em !important; 
-		margin-bottom: 1.2em !important; /* Garantir a margem */
+		margin-bottom: 1.2em !important; 
 		color: #0A2463 !important; /* COR DOS TÍTULOS DE SEÇÃO ALTERADA */
 	}
 
@@ -176,14 +177,14 @@ input, select, textarea {
 		font-size: 1.25em;
 		line-height: 1.5em;
 		color: #2A3B47; 
-		margin-bottom: 0.75em; /* Adicionado para consistência */
+		margin-bottom: 0.75em; 
 	}
 
 	#main h4 { /* Sub-subtítulos APENAS dentro das seções principais */
 		font-size: 1.1em;
 		line-height: 1.5em;
 		color: #2A3B47; 
-		margin-bottom: 0.5em; /* Adicionado para consistência */
+		margin-bottom: 0.5em; 
 	}
 	
 
@@ -3315,10 +3316,10 @@ input, select, textarea {
 }
 
 #header nav a.active { 
-	background-color: #0A2463; /* COR ALTERADA */
+	background-color: #0A2463; /* PRIMÁRIA: Azul Escuro */
 	color: #FFFFFF !important;   
 	font-weight: bold;      
-	border-color: #0A2463;  /* COR ALTERADA */
+	border-color: #0A2463;  /* PRIMÁRIA: Azul Escuro */
 }
 
 /* Ajustes para responsividade da navegação */
